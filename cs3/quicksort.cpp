@@ -2,6 +2,7 @@
 #include <vector>
 #include <random>
 #include <algorithm> // for std::generate_n
+#include <chrono>
 // partion to split in half or in different parts everytime.
 int partition(std::vector<int>&arr, int low, int high){
     //chooses pivot
@@ -30,21 +31,30 @@ void quicksort(std::vector<int>&arr, int low, int high){
 int main() {
     std::random_device rd;
     std::mt19937 gen(rd());
-    std::uniform_int_distribution<> dist(0, 10);
+    std::uniform_int_distribution<> dist(0, 100000);
 
     // Create vector with random ints
-    std::vector<int> v(10);
-    std::generate_n(v.begin(), v.size(), [&]() { return dist(gen); });
+    std::vector<int> arr(10000);
+    std::generate_n(arr.begin(), arr.size(), [&]() { return dist(gen); });
     std::cout<<" Before quicksort ";
-    // print first 10 to check
-    for (int i = 0; i < 10; ++i) std::cout << v[i] << ' ';
-    std::cout << '\n';
-    quicksort(v, 0, v.size()-1);
+    // print first 10 to check or change for full set
+    //for (int i = 0; i < arr.size(); ++i) std::cout << arr[i] << ' ';
+    //std::cout << '\n';
+
+    auto start = std::chrono::high_resolution_clock::now();
+    quicksort(arr, 0, arr.size()-1);
+    auto end = std::chrono::high_resolution_clock::now();
     std::cout<<" after quicksort ";
 
-    for (int i=0; i<10; i++){
-    std::cout<< v[i] <<' ' ;
-    }
+//for print out of array after
+    //for (int i=0; i<arr.size(); i++){
+    //std::cout<< arr[i] <<' ' ;}
+
     std::cout << '\n';
+
+    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
+    std::cout<< '\n';
+    std::cout << "Execution time: " << duration.count() << " microseconds" << std::endl;
+
     return 0;
 }
