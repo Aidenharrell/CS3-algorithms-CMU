@@ -1,0 +1,8 @@
+Aiden Harrell
+CS 250
+CS3 Sorting Algorithms
+
+	To start off the essential premise of this assignment is to generate 5 different programs that each run a different sorting algorithm. The following algorithms are insertion sort, merge sort, quick sort, selection sort, and bubble sort. The O run time for insertion, selection and bubble sort are all O(n^2) which is roughly n by n due to the fact of how they traverse the integer layout and proceed to need to verify without deducting any amount of processes. Whereas merge sort and quick sort contain a run time of about O(n log n). Of these run times it would be most efficient, especially with larger numbers to run the quick sort and merge sort if the task arose and you needed efficiency over anything else. 
+	My data on these programs seemed to follow this analysis, with quick sort being the quickest with 2978 microseconds to run. 2nd in efficiency came merge sort with 7187. After this the drop off was rather steep in run time. In 3rd was selection sort with 190155 microseconds. In 4th was insertion sort taking 274415 microseconds. Lastly was bubble sort taking 540282 microseconds. Being overall the worst sort to use.
+	These times were expected as the equation of 10000 log 10000 =  equal roughly 40000.
+Whereas 10000^2 equaled roughly 100,000,000. Obviously these numbers are subject to change with different sorted numbers but the trend is obvious that merge sort and quicksort are the wisest options to use for sorting algorithms. Basically both merge sort and quick sort are the most practical for large data sets. Whereas the rest are better at fighting for scraps in small data sets. 
